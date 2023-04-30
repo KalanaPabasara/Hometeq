@@ -7,6 +7,7 @@ echo "<title>".$pagename."</title>";
 //display name of the page as window title
 echo "<body>";
 include ("headfile.html");
+include ("detectlogin.php");
 //include header layout file
 echo "<h4>".$pagename."</h4>";
 //display name of the page on the web page
@@ -68,12 +69,20 @@ else{
 	}
 		echo "<tr><td colspan='4'>Total</td><td>Rs ".$total."</td></tr></table>";
 		echo "<a href='clearbasket.php'>Clear the basket</a>";
-		echo "<br><br>";
-		echo "New HomeTeq Customers";
-		echo "<a href='register.php'> Register</a>";
-		echo "<br>";
-		echo "Returning HomeTeq Customers";
-		echo "<a href='login.php'> Login</a>";
+		if(isset($_SESSION['userid'])){
+			echo "<br><p><a href=checkout.php>CHECKOUT</a></p>";
+		}
+		else{
+			echo "<br><p>New hometeq customers: <a href='signup.php'>Sign up </a></p>";
+			echo "<p>Returning homteq customers: <a href='login.php'>Login</a></p>";
+
+		}
+		// echo "<br><br>";
+		// echo "New HomeTeq Customers";
+		// echo "<a href='register.php'> Register</a>";
+		// echo "<br>";
+		// echo "Returning HomeTeq Customers";
+		// echo "<a href='login.php'> Login</a>";
 		
 		
 		
